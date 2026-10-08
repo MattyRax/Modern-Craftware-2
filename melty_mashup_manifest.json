@@ -1,0 +1,61 @@
+{
+  "$schema": "https://melty.gg/schemas/v1/recipe.json",
+  "id": "modern-craftware-2",
+  "title": "Modern Craftware 2",
+  "version": "1.0.0",
+  "license": "MIT",
+  "tagline": "MW2 multiplayer modes, maps, and audio powered directly by your MW2 install inside Minecraft.",
+  "description": "Experience Call of Duty: Modern Warfare 2 (2009) in Minecraft! Play iconic modes like TDM and Domination on Rust or Terminal, complete with authentic weapon firing audio, hitmarkers, announcer lines, and killstreaks loaded straight from your local MW2 game folder.",
+  "games": {
+    "primary": {
+      "id": "minecraft-java",
+      "version": "1.20.1",
+      "loader": {
+        "type": "fabric",
+        "version": "0.14.22"
+      }
+    },
+    "companion": {
+      "id": "call-of-duty-modern-warfare-2",
+      "default_paths": {
+        "windows": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Call of Duty Modern Warfare 2"
+      },
+      "required_files": [
+        "main/iw_00.iwd",
+        "main/iw_01.iwd",
+        "main/iw_02.iwd",
+        "main/iw_03.iwd",
+        "main/iw_04.iwd",
+        "main/iw_05.iwd",
+        "main/iw_06.iwd",
+        "main/iw_07.iwd",
+        "main/iw_08.iwd",
+        "main/iw_09.iwd",
+        "main/iw_10.iwd",
+        "main/iw_11.iwd"
+      ]
+    }
+  },
+  "dependencies": [
+    {
+      "name": "Fabric API",
+      "version": "0.91.1+1.20.1",
+      "source": "modrinth",
+      "id": "P72A310N"
+    }
+  ],
+  "config": {
+    "vfs_mounts": [
+      {
+        "source": "{game:call-of-duty-modern-warfare-2}/main",
+        "target": "{minecraft-instance}/config/modern-craftware/audio/mw2",
+        "type": "iwd_extract"
+      }
+    ],
+    "game_rules": {
+      "gamemodes": ["tdm", "domination"],
+      "maps": ["rust", "terminal"],
+      "allow_lan": true
+    }
+  }
+}
